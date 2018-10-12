@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+ext {
+    prometheusClientVersion = '0.5.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile (
+        [group: 'io.prometheus', name: 'simpleclient', version: prometheusClientVersion],
+        [group: 'io.prometheus', name: 'simpleclient_hotspot', version: prometheusClientVersion],
+        [group: 'io.prometheus', name: 'simpleclient_httpserver', version: prometheusClientVersion],
+        [group: 'org.nanohttpd', name: 'nanohttpd', version: '2.2.0']
+    )
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.8.1'
+}
